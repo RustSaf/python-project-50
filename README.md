@@ -1,5 +1,5 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/RustSaf/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/RustSaf/python-project-50/actions)
+
 [![GitHub Actions Status](https://github.com/RustSaf/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/RustSaf/python-project-50/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2970babfb69a24ebb786/maintainability)](https://codeclimate.com/github/RustSaf/python-project-50/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/2970babfb69a24ebb786/test_coverage)](https://codeclimate.com/github/RustSaf/python-project-50/test_coverage)
@@ -86,7 +86,7 @@ print(diff)
 
 ### Usage
 
-Examples of usage "gendiff" on ![asciinema.org](https://asciinema.org):
+Examples of usage "gendiff" on ![asciinema.org](https://asciinema.org).
 
 
 _Launching the gendiff and finding differences in json files:_
