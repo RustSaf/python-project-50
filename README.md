@@ -93,6 +93,10 @@ _Launching the gendiff and finding differences in json files:_
 
 [![asciicast2](https://asciinema.org/a/qbOmbJ1bQ4UyNXGwZPaC18w1P.png)](https://asciinema.org/a/qbOmbJ1bQ4UyNXGwZPaC18w1P)
 
+_Launching the gendiff and finding differences in json and yaml files:_
+
+[![asciicast2](https://asciinema.org/a/rVkwHmakVdDJLWv8dI9M5ji3V.png)](https://asciinema.org/a/rVkwHmakVdDJLWv8dI9M5ji3V)
+
 
 ### Links
 
