@@ -89,13 +89,25 @@ print(diff)
 Examples of usage "gendiff" on ![asciinema.org](https://asciinema.org).
 
 
-_Launching the gendiff and finding differences in json files:_
+Launching the _gendiff_ and finding differences in _json_ files:
 
 [![asciicast2](https://asciinema.org/a/qbOmbJ1bQ4UyNXGwZPaC18w1P.png)](https://asciinema.org/a/qbOmbJ1bQ4UyNXGwZPaC18w1P)
 
-_Launching the gendiff and finding differences in json and yaml files:_
+Launching the _gendiff_ and finding differences in _json_ and _yaml_ files:
 
 [![asciicast2](https://asciinema.org/a/rVkwHmakVdDJLWv8dI9M5ji3V.png)](https://asciinema.org/a/rVkwHmakVdDJLWv8dI9M5ji3V)
+
+Launching the _gendiff_ and finding differences in _json_ and _yaml_ files for nested structures using formatters _stylish_ in _json_ and _yaml_ files:
+
+[![asciicast2](https://asciinema.org/a/FhshoBiVHCpMbGqQySnihbMKE.png)](https://asciinema.org/a/FhshoBiVHCpMbGqQySnihbMKE)
+
+Launching the _gendiff_ and finding differences in _json_ and _yaml_ files for nested structures using formatters _stylish_ and _plain_ in _json_ and _yaml_ files:
+
+[![asciicast2](https://asciinema.org/a/UGzVUCa2j11zjOfCqRcLgEzFH.png)](https://asciinema.org/a/UGzVUCa2j11zjOfCqRcLgEzFH)
+
+Launching the _gendiff_ and finding differences in _json_ files for nested structures using formatters _json_:
+
+[![asciicast2](https://asciinema.org/a/1tHTcaVMNUuL8RdapiRHyOChE.png)](https://asciinema.org/a/1tHTcaVMNUuL8RdapiRHyOChE)
 
 
 ### Links
