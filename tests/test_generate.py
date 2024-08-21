@@ -2,6 +2,7 @@ import json
 from gendiff import generate_diff
 from gendiff.parse import data_parse
 from gendiff.generate import generate
+from gendiff.format import stylish
 from gendiff.format import plain
 from gendiff.format import json
 
@@ -11,8 +12,8 @@ def test_diff_json_to_stylish():
     diff = file_diff.read()
     file_diff.close()
     assert generate_diff(
-        'tests/fixtures/file1.json', 'tests/fixtures/file2.json'
-        ) + '\n' == diff
+        'tests/fixtures/file1.json', 'tests/fixtures/file2.json',
+        stylish) + '\n' == diff
 
 
 def test_diff_json_to_plain():
@@ -33,8 +34,8 @@ def test_diff_yaml_to_stylish():
     diff = file_diff.read()
     file_diff.close()
     assert generate_diff(
-        'tests/fixtures/file1.yaml', 'tests/fixtures/file2.yml'
-        ) + '\n' == diff
+        'tests/fixtures/file1.yaml', 'tests/fixtures/file2.yml',
+        stylish) + '\n' == diff
 
 
 def test_diff_yaml_to_plain():
