@@ -22,7 +22,7 @@ def generate(data1, data2):
     return data
 
 
-def generate_diff(file_1, file_2, data_format=stylish):
+def generate_diff(file_1, file_2, data_format='stylish'):
     data1, data2 = data_parse(file_1, file_2)
     diff = generate(data1, data2)
     format_diff = data_format(diff)
