@@ -3,4 +3,4 @@ from gendiff.format.plain import make_plain as plain  # noqa
 from gendiff.format.json import make_json as json  # noqa
 
 
-__all__ = ('stylish', 'plain', 'json')
+__all__ = (stylish, plain, json)

@@ -3,6 +3,7 @@
 from gendiff.parse import data_parse
 from gendiff.format import stylish
 from gendiff.format import plain # noqa
+from gendiff.format import json # noqa
 
 
 def generate(data1, data2):
