@@ -2,9 +2,10 @@
 import json
 import yaml
 import sys
+import gendiff.format
 
 
-def data_parse(file_path1, file_path2):
+def data_parse(file_path1, file_path2, data_format):
     if file_path1.endswith('.json') and file_path2.endswith('.json'):
         with open(file_path1) as file1:
             data1 = json.load(file1)
@@ -20,5 +21,6 @@ def data_parse(file_path1, file_path2):
     else:
         print("\033[3m\033[31m\033[40m{}\033[0m".format("Unknown file format"))
         sys.exit()
+    f = getattr(gendiff.format, data_format)
 
-    return data1, data2
+    return data1, data2, f

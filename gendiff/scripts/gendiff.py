@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # script: gendiff.py
 import argparse
-import gendiff.format
 from gendiff.generate import generate_diff
 
 
@@ -18,8 +17,7 @@ def main():
     path_to_file1 = args.first_file
     path_to_file2 = args.second_file
     data_format = args.format
-    f = getattr(gendiff.format, data_format)
-    diff = generate_diff(path_to_file1, path_to_file2, f)
+    diff = generate_diff(path_to_file1, path_to_file2, data_format)
     print(diff)
 
 

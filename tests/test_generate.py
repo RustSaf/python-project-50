@@ -13,20 +13,21 @@ def test_diff_json_to_stylish():
     file_diff.close()
     assert generate_diff(
         'tests/fixtures/file1.json', 'tests/fixtures/file2.json',
-        stylish) + '\n' == diff
+        'stylish') + '\n' == diff
 
 
 def test_diff_json_to_plain():
     file_diff = open('tests/fixtures/file_result_plain.txt')
     diff = file_diff.read()
     file_diff.close()
-    data1, data2 = data_parse('tests/fixtures/file1.json', 'tests/fixtures/file2.json')
+    data1, data2, format = data_parse('tests/fixtures/file1.json',
+        'tests/fixtures/file2.json', 'plain')
     data_diff = generate(data1, data2)
-    format_data_diff = plain(data_diff, ["'"], 0)
+    format_data_diff = format(data_diff, ["'"], 0)
     assert format_data_diff == diff
     assert generate_diff(
         'tests/fixtures/file1.json', 'tests/fixtures/file1.json',
-        plain) == ""
+        'plain') == ""
 
 
 def test_diff_yaml_to_stylish():
@@ -35,20 +36,21 @@ def test_diff_yaml_to_stylish():
     file_diff.close()
     assert generate_diff(
         'tests/fixtures/file1.yaml', 'tests/fixtures/file2.yml',
-        stylish) + '\n' == diff
+        'stylish') + '\n' == diff
 
 
 def test_diff_yaml_to_plain():
     file_diff = open('tests/fixtures/file_result_plain.txt')
     diff = file_diff.read()
     file_diff.close()
-    data1, data2 = data_parse('tests/fixtures/file1.yaml', 'tests/fixtures/file2.yml')
+    data1, data2, format = data_parse('tests/fixtures/file1.yaml',
+        'tests/fixtures/file2.yml', 'plain')
     data_diff = generate(data1, data2)
-    format_data_diff = plain(data_diff, ["'"], 0)
+    format_data_diff = format(data_diff, ["'"], 0)
     assert format_data_diff == diff
     assert generate_diff(
         'tests/fixtures/file2.yml', 'tests/fixtures/file2.yml',
-        plain) == ""
+        'plain') == ""
 
 
 def test_diff_json_to_json():
@@ -56,4 +58,4 @@ def test_diff_json_to_json():
         diff = file_diff.read()
     assert generate_diff(
         'tests/fixtures/file1.json', 'tests/fixtures/file2.json',
-        json) == diff
+        'json') == diff

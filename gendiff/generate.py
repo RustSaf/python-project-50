@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Generate diffrence of json or yaml data
 from gendiff.parse import data_parse
-from gendiff.format import stylish
+from gendiff.format import stylish # noqa
 from gendiff.format import plain # noqa
 from gendiff.format import json # noqa
 
@@ -23,8 +23,8 @@ def generate(data1, data2):
     return data
 
 
-def generate_diff(file_1, file_2, data_format=stylish):
-    data1, data2 = data_parse(file_1, file_2)
+def generate_diff(file_1, file_2, data_format='stylish'):
+    data1, data2, data_formater = data_parse(file_1, file_2, data_format)
     diff = generate(data1, data2)
-    format_diff = data_format(diff)
+    format_diff = data_formater(diff)
     return format_diff
