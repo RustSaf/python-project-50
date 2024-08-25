@@ -7,7 +7,7 @@ def make_plain(data, paths=["'"], i=0):
     result = ""
     n = 0
     endpath = ''
-    for key in keys:
+    for k, key in enumerate(keys):
         if isinstance(data[key], dict):
             if 'added' in data[key]:
                 result += 'Property ' + paths[i-n] + f"{key}'" + (
@@ -42,4 +42,5 @@ def make_plain(data, paths=["'"], i=0):
                 result += make_plain(data[key], paths, i)
                 endpath = paths[i]
             paths = list(map(lambda x: "'" if x == endpath else x, paths))
-    return result + '\n' if i == 0 else result
+    return result if n == 0 else (
+               result.rstrip('\n') if paths[-1] == "'" else (result + '\n'))
