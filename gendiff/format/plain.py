@@ -41,6 +41,5 @@ def make_plain(data, paths=["'"], i=0):
                 n += 1
                 result += make_plain(data[key], paths, i)
                 endpath = paths[i]
-            paths = list(map(lambda x: "'" if x == endpath else x, paths))
-    return result if n == 0 else (
-               result.rstrip('\n') if paths[-1] == "'" else (result + '\n'))
+            paths = list(map(lambda x: paths[i-1] if x == endpath else x, paths))
+    return result if n == 0 else (result.rstrip('\n') if paths[-1] == "'" else result)
