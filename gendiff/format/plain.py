@@ -6,7 +6,7 @@ def make_plain(data, path="'", i=0):
     keys = sorted(data.keys())
     result = ""
     beginpath = []
-    for k, key in enumerate(keys):
+    for key in keys:
         if isinstance(data[key], dict):
             if 'added' in data[key]:
                 result += 'Property ' + path + f"{key}'" + (
