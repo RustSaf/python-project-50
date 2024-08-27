@@ -21,7 +21,7 @@ def test_diff_json_to_plain():
     data1, data2, format = data_parse('tests/fixtures/file1.json',
         'tests/fixtures/file2.json', 'plain')
     data_diff = generate(data1, data2)
-    format_data_diff = format(data_diff, ["'"], 0)
+    format_data_diff = format(data_diff)
     assert format_data_diff + '\n' == diff
     assert generate_diff(
         'tests/fixtures/file1.json', 'tests/fixtures/file1.json',
@@ -42,7 +42,7 @@ def test_diff_yaml_to_plain():
     data1, data2, format = data_parse('tests/fixtures/file1.yaml',
         'tests/fixtures/file2.yml', 'plain')
     data_diff = generate(data1, data2)
-    format_data_diff = format(data_diff, ["'"], 0)
+    format_data_diff = format(data_diff)
     assert format_data_diff + '\n' == diff
     assert generate_diff(
         'tests/fixtures/file2.yml', 'tests/fixtures/file2.yml',
