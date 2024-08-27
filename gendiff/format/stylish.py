@@ -22,8 +22,8 @@ def make_stylish(data, i=0):
                 result += '    ' * i + '    ' + key + ': ' + data_to_str(
                     make_stylish(data[key].get(
                         'unchanged'), i + 1) if isinstance(data[key].get(
-                             'unchanged'), dict) else data[key].get(
-                                 'unchanged')) + '\n'
+                            'unchanged'), dict) else data[key].get(
+                                'unchanged')) + '\n'
             elif 'old' and 'new' in data[key]:
                 result += '    ' * i + '  - ' + key + ': ' + data_to_str(
                     make_stylish(data[key].get('old'), i + 1) if isinstance(

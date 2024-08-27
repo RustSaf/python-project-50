@@ -1,4 +1,3 @@
-import json
 from gendiff import generate_diff
 from gendiff.parse import data_parse
 from gendiff.generate import generate
