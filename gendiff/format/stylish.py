@@ -10,41 +10,41 @@ def make_stylish(data, i=0):
             if 'added' in data[key]:
                 result += (
                     f"{'    ' * i}  + {key}: "
-                    f"""{data_to_str(make_stylish(data[key].get('added'), i+1)
-                     if isinstance(data[key].get('added'), dict)
-                     else data[key].get('added'))}\n"""
+                    f"""{data_to_str(make_stylish(data[key].get('added'),
+                    i + 1) if isinstance(data[key].get('added'), dict)
+                    else data[key].get('added'))}\n"""
                 )
             elif 'deleted' in data[key]:
                 result += (
                     f"{'    ' * i}  - {key}: "
                     f"""{data_to_str(make_stylish(data[key].get('deleted'),
-                     i+1) if isinstance(data[key].get('deleted'), dict)
-                     else data[key].get('deleted'))}\n"""
+                    i + 1) if isinstance(data[key].get('deleted'), dict)
+                    else data[key].get('deleted'))}\n"""
                 )
             elif 'unchanged' in data[key]:
                 result += (
                     f"{'    ' * i}    {key}: "
                     f"""{data_to_str(make_stylish(data[key].get('unchanged'),
-                     i+1) if isinstance(data[key].get('unchanged'), dict)
-                     else data[key].get('unchanged'))}\n"""
+                    i + 1) if isinstance(data[key].get('unchanged'), dict)
+                    else data[key].get('unchanged'))}\n"""
                 )
             elif 'old' and 'new' in data[key]:
                 result += (
                     f"{'    ' * i}  - {key}: "
-                    f"""{data_to_str(make_stylish(data[key].get('old'), i+1)
-                     if isinstance(data[key].get('old'), dict)
-                     else data[key].get('old'))}\n"""
+                    f"""{data_to_str(make_stylish(data[key].get('old'), i + 1)
+                    if isinstance(data[key].get('old'), dict)
+                    else data[key].get('old'))}\n"""
                 )
                 result += (
                     f"{'    ' * i}  + {key}: "
-                    f"""{data_to_str(make_stylish(data[key].get('new'), i+1)
-                     if isinstance(data[key].get('new'), dict)
-                     else data[key].get('new'))}\n"""
+                    f"""{data_to_str(make_stylish(data[key].get('new'), i + 1)
+                    if isinstance(data[key].get('new'), dict)
+                    else data[key].get('new'))}\n"""
                 )
             else:
                 result += (
                     f"{'    ' * (i + 1)}{key}: "
-                    f"{data_to_str(make_stylish(data[key], i+1))}\n"
+                    f"{data_to_str(make_stylish(data[key], i + 1))}\n"
                 )
         else:
             result += f"{'    ' * (i + 1)}{key}: {data_to_str(data[key])}\n"
