@@ -1,11 +1,4 @@
-#!/usr/bin/env python3
-# Generate diffrence of json or yaml data
-from gendiff.parse import data_parse
-from gendiff.format import stylish # noqa
-from gendiff.format import plain # noqa
-from gendiff.format import json # noqa
-
-
+# Generate diffrence of data
 def generate(data1, data2):
     keys = data1.keys() | data2.keys()
     data = {}
@@ -21,10 +14,3 @@ def generate(data1, data2):
         else:
             data[key] = {'old': data1[key], 'new': data2[key]}
     return data
-
-
-def generate_diff(file_1, file_2, data_format='stylish'):
-    data1, data2, data_formater = data_parse(file_1, file_2, data_format)
-    diff = generate(data1, data2)
-    format_diff = data_formater(diff)
-    return format_diff

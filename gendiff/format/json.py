@@ -1,12 +1,7 @@
-# Formater "Stylish" diffrence of json or yaml data
+# Formater "Json" diffrence of json or yaml data
 import json
 
 
 def make_json(data):
-    with open('tests/fixtures/file_result_tmp.json', 'w') as f:
-        json.dump(data, f, sort_keys=True, indent=2)
-
-    with open('tests/fixtures/file_result_tmp.json') as f:
-        result = f.read()
-
+    result = json.dumps(data, sort_keys=True, indent=2)
     return result

@@ -7,5 +7,7 @@ dist/
 coverage.xml
 .pytest_cache/
 .idea
+demo1.cast
 *.cast
 *.swp
+qodana.yaml
