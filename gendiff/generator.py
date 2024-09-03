@@ -14,5 +14,5 @@ def build_tree(data1, data2):
         else:
             data[key] = {
                 'key': 'changed', 'value1': data1[key], 'value2': data2[key]
-                }
+            }
     return data
