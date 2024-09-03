@@ -1,58 +1,71 @@
 {
   "common": {
     "follow": {
-      "added": false
+      "key": "added",
+      "value": false
     },
     "setting1": {
-      "unchanged": "Value 1"
+      "key": "unchanged",
+      "value": "Value 1"
     },
     "setting2": {
-      "deleted": 200
+      "key": "deleted",
+      "value": 200
     },
     "setting3": {
-      "new": null,
-      "old": true
+      "key": "changed",
+      "value1": true,
+      "value2": null
     },
     "setting4": {
-      "added": "blah blah"
+      "key": "added",
+      "value": "blah blah"
     },
     "setting5": {
-      "added": {
+      "key": "added",
+      "value": {
         "key5": "value5"
       }
     },
     "setting6": {
       "doge": {
         "wow": {
-          "new": "so much",
-          "old": ""
+          "key": "changed",
+          "value1": "",
+          "value2": "so much"
         }
       },
       "key": {
-        "unchanged": "value"
+        "key": "unchanged",
+        "value": "value"
       },
       "ops": {
-        "added": "vops"
+        "key": "added",
+        "value": "vops"
       }
     }
   },
   "group1": {
     "baz": {
-      "new": "bars",
-      "old": "bas"
+      "key": "changed",
+      "value1": "bas",
+      "value2": "bars"
     },
     "foo": {
-      "unchanged": "bar"
+      "key": "unchanged",
+      "value": "bar"
     },
     "nest": {
-      "new": "str",
-      "old": {
+      "key": "changed",
+      "value1": {
         "key": "value"
-      }
+      },
+      "value2": "str"
     }
   },
   "group2": {
-    "deleted": {
+    "key": "deleted",
+    "value": {
       "abc": 12345,
       "deep": {
         "id": 45
@@ -60,7 +73,8 @@
     }
   },
   "group3": {
-    "added": {
+    "key": "added",
+    "value": {
       "deep": {
         "id": {
           "number": 45

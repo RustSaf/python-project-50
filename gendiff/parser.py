@@ -1,25 +1,19 @@
 # Parser data of json or yaml files
 import json
 import yaml
-import sys
+from pathlib import Path
 
 
-def file_parser(file_path):
-    if file_path.endswith('.json'):
-        with open(file_path) as file:
-            data = data_parser(file, 'json')
-    elif file_path.endswith(('.yml', '.yaml')):
-        with open(file_path) as file:
-            data = data_parser(file, 'yaml')
-    else:
-        print("\033[3m\033[31m\033[40m{}\033[0m".format("Unknown file format"))
-        sys.exit()
+def file_parser(filename):
+    with open(filename) as file:
+        ext = Path(filename).suffix
+        data = data_parser(file, ext)
     return data
 
 
-def data_parser(data_file, format_file):
-    if format_file == 'json':
-        data = json.load(data_file)
-    elif format_file == 'yaml':
-        data = yaml.safe_load(data_file)
+def data_parser(file, ext_file):
+    if ext_file == '.json':
+        data = json.load(file)
+    elif ext_file == '.yaml' or '.yml':
+        data = yaml.safe_load(file)
     return data

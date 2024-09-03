@@ -1,6 +1,6 @@
 from gendiff.diff_format import generate_diff
 from gendiff.parser import file_parser
-from gendiff.generator import generate
+from gendiff.generator import build_tree
 import gendiff.format
 
 
@@ -17,7 +17,7 @@ def test_diff_json_to_plain():
         diff_test = file_diff.read()
     data1 = file_parser('tests/fixtures/file1.json')
     data2 = file_parser('tests/fixtures/file2.json')
-    diff = generate(data1, data2)
+    diff = build_tree(data1, data2)
     formater = getattr(gendiff.format, 'plain')
     format_diff = formater(diff)
     assert format_diff + '\n' == diff_test
@@ -39,7 +39,7 @@ def test_diff_yaml_to_plain():
         diff_test = file_diff.read()
     data1 = file_parser('tests/fixtures/file1.yaml')
     data2 = file_parser('tests/fixtures/file2.yml')
-    diff = generate(data1, data2)
+    diff = build_tree(data1, data2)
     formater = getattr(gendiff.format, 'plain')
     format_diff = formater(diff)
     assert format_diff + '\n' == diff_test

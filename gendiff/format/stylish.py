@@ -5,47 +5,48 @@ from gendiff.format.data_to_str import data_to_str
 def make_stylish(data, i=0):
     keys = sorted(data.keys())
     result = ""
+    INDENT = '    '
     for key in keys:
         if isinstance(data[key], dict):
-            if 'added' in data[key]:
+            if data[key].get('key') == 'added':
                 result += (
-                    f"{'    ' * i}  + {key}: "
-                    f"""{data_to_str(make_stylish(data[key].get('added'),
-                         i + 1) if isinstance(data[key].get('added'), dict)
-                         else data[key].get('added'))}\n"""
+                    f"{INDENT * i}  + {key}: "
+                    f"""{data_to_str(make_stylish(data[key].get('value'),
+                         i + 1) if isinstance(data[key].get('value'), dict)
+                         else data[key].get('value'))}\n"""
                 )
-            elif 'deleted' in data[key]:
+            elif data[key].get('key') == 'deleted':
                 result += (
-                    f"{'    ' * i}  - {key}: "
-                    f"""{data_to_str(make_stylish(data[key].get('deleted'),
-                         i + 1) if isinstance(data[key].get('deleted'), dict)
-                         else data[key].get('deleted'))}\n"""
+                    f"{INDENT * i}  - {key}: "
+                    f"""{data_to_str(make_stylish(data[key].get('value'),
+                         i + 1) if isinstance(data[key].get('value'), dict)
+                         else data[key].get('value'))}\n"""
                 )
-            elif 'unchanged' in data[key]:
+            elif data[key].get('key') == 'unchanged':
                 result += (
-                    f"{'    ' * i}    {key}: "
-                    f"""{data_to_str(make_stylish(data[key].get('unchanged'),
-                         i + 1) if isinstance(data[key].get('unchanged'), dict)
-                         else data[key].get('unchanged'))}\n"""
+                    f"{INDENT * i}    {key}: "
+                    f"""{data_to_str(make_stylish(data[key].get('value'),
+                         i + 1) if isinstance(data[key].get('value'), dict)
+                         else data[key].get('value'))}\n"""
                 )
-            elif 'old' and 'new' in data[key]:
+            elif data[key].get('key') == 'changed':
                 result += (
-                    f"{'    ' * i}  - {key}: "
-                    f"""{data_to_str(make_stylish(data[key].get('old'), i + 1)
-                         if isinstance(data[key].get('old'), dict)
-                         else data[key].get('old'))}\n"""
+                    f"{INDENT * i}  - {key}: "
+                    f"""{data_to_str(make_stylish(data[key].get('value1'),
+                         i + 1) if isinstance(data[key].get('value1'), dict)
+                         else data[key].get('value1'))}\n"""
                 )
                 result += (
-                    f"{'    ' * i}  + {key}: "
-                    f"""{data_to_str(make_stylish(data[key].get('new'), i + 1)
-                         if isinstance(data[key].get('new'), dict)
-                         else data[key].get('new'))}\n"""
+                    f"{INDENT * i}  + {key}: "
+                    f"""{data_to_str(make_stylish(data[key].get('value2'),
+                         i + 1) if isinstance(data[key].get('value2'), dict)
+                         else data[key].get('value2'))}\n"""
                 )
             else:
                 result += (
-                    f"{'    ' * (i + 1)}{key}: "
+                    f"{INDENT * (i + 1)}{key}: "
                     f"{data_to_str(make_stylish(data[key], i + 1))}\n"
                 )
         else:
-            result += f"{'    ' * (i + 1)}{key}: {data_to_str(data[key])}\n"
-    return f"{{\n{result}{'    ' * i}}}"
+            result += f"{INDENT * (i + 1)}{key}: {data_to_str(data[key])}\n"
+    return f"{{\n{result}{INDENT * i}}}"
