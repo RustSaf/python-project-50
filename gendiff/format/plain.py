@@ -7,33 +7,29 @@ def to_str(data):
         data, dict) else data_to_str(data, 1)
 
 
-def make_plain(data, path="'", i=0):
+def make_plain(data, path=""):
     keys = sorted(data.keys())
-    result = ""
+    result = []
     beginpath = []
     for key in keys:
         if data[key].get('key') == 'added':
-            result += (
-                f"Property {path}{key}' was added with value: "
-                f"{to_str(data[key].get('value'))}\n"
+            result.append(
+                f"Property '{path}{key}' was added with value: "
+                f"{to_str(data[key].get('value'))}"
             )
-            i += 1
         elif data[key].get('key') == 'deleted':
-            result += f"Property {path}{key}' was removed\n"
-            i += 1
+            result.append(f"Property '{path}{key}' was removed")
         elif data[key].get('key') == 'changed':
-            result += (
-                f"Property {path}{key}' was updated. From "
+            result.append(
+                f"Property '{path}{key}' was updated. From "
                 f"{to_str(data[key].get('value1'))} to "
-                f"{to_str(data[key].get('value2'))}\n"
+                f"{to_str(data[key].get('value2'))}"
             )
-            i += 2
         elif data[key].get('key') == 'unchanged':
-            i += 1
+            pass
         else:
             beginpath.append(path)
             path = f"{path}{key}."
-            i += 1
-            result += make_plain(data[key], path, i)
+            result.append(make_plain(data[key], path))
             path = beginpath[0]
-    return result if i != len(keys) else result.rstrip('\n')
+    return '\n'.join(result)

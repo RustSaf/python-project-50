@@ -14,7 +14,7 @@ def make_stylish(data, i=0):
                     f"""{data_to_str(make_stylish(data[key].get('value'),
                          i + 1) if isinstance(data[key].get('value'), dict)
                          else data[key].get('value'))}\n"""
-                )
+                    )
             elif data[key].get('key') == 'deleted':
                 result += (
                     f"{INDENT * i}  - {key}: "

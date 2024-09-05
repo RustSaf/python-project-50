@@ -12,8 +12,16 @@ def file_parser(filename):
 
 
 def data_parser(file, ext_file):
-    if ext_file == '.json':
-        data = json.load(file)
-    elif ext_file == '.yaml' or '.yml':
-        data = yaml.safe_load(file)
-    return data
+    match ext_file:
+        case '.json':
+            data = json.load(file)
+            return data
+        case '.yaml':
+            data = yaml.safe_load(file)
+            return data
+        case '.yml':
+            data = yaml.safe_load(file)
+            return data
+        case _:
+            raise Exception("\033[3m\033[31m\033[40m{}\033[0m".format(
+                "Unknown file format"))
