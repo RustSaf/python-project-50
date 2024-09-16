@@ -12,24 +12,26 @@ def make_plain(data, path=""):
     result = []
     beginpath = []
     for key in keys:
-        if data[key].get('key') == 'added':
+        if data[key].get('type') == 'added':
             result.append(
                 f"Property '{path}{key}' was added with value: "
                 f"{to_str(data[key].get('value'))}"
             )
-        elif data[key].get('key') == 'deleted':
+        elif data[key].get('type') == 'deleted':
             result.append(f"Property '{path}{key}' was removed")
-        elif data[key].get('key') == 'changed':
+        elif data[key].get('type') == 'changed':
             result.append(
                 f"Property '{path}{key}' was updated. From "
                 f"{to_str(data[key].get('value1'))} to "
                 f"{to_str(data[key].get('value2'))}"
             )
-        elif data[key].get('key') == 'unchanged':
+        elif data[key].get('type') == 'children':
             pass
-        else:
+        elif data[key].get('type') == 'nested':
             beginpath.append(path)
             path = f"{path}{key}."
-            result.append(make_plain(data[key], path))
+            result.append(make_plain(data[key].get('value'), path))
             path = beginpath[0]
+        else:
+            pass
     return '\n'.join(result)

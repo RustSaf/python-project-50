@@ -5,30 +5,30 @@ from gendiff.format.data_to_str import data_to_str
 def make_stylish(data, depth=0):
     keys = sorted(data.keys())
     result = []
+    lines = []
     INDENT = '    '
     for key in keys:
         if data[key].get('type') == 'added':
-            result.append(f"{INDENT*depth}+ {data[key].get('key')}: "
+            result.append(f"{INDENT*depth}+ {key}: "
                           f"{data_to_str(data[key].get('value'))}")
         elif data[key].get('type') == 'deleted':
-            result.append(f"{INDENT*depth}- {data[key].get('key')}: "
+            result.append(f"{INDENT*depth}- {key}: "
                           f"{data_to_str(data[key].get('value'))}")
         elif data[key].get('type') == 'changed':
-            result.append(f"{INDENT*depth}- {data[key].get('key')}: "
+            result.append(f"{INDENT*depth}- {key}: "
                           f"{data_to_str(data[key].get('value1'))}")
-            result.append(f"{INDENT*depth}+ {data[key].get('key')}: "
+            result.append(f"{INDENT*depth}+ {key}: "
                           f"{data_to_str(data[key].get('value2'))}")
         elif data[key].get('type') == 'children':
-            result.append(f"{INDENT*depth} {data[key].get('key')}: "
+            result.append(f"{INDENT*depth}  {key}: "
                           f"{data_to_str(data[key].get('value'))}")
-        elif data[key].get('type') == 'nested':
-            lines = map(lambda child: make_stylish(
-                child, depth + 1), data[key].get('value'))
-            sub_result = '\n'.join(lines)
-            result.append(f"{INDENT*depth}  {data[key].get('key')}: "
-                          f"{{\n{sub_result}\n{INDENT}  }}")
-        # else:
-        #     pass
+        else:
+            lines = list(map(lambda child: make_stylish(
+                child, depth + 1), data[key].get('value')))
+            # lines = make_stylish(data[key].get('value'), depth + 1)
+            sub_result = '\n'.join(map(str, lines))
+            result.append(f"{INDENT*depth}  {key}: "
+                          f"{sub_result}\n{INDENT}  ")
     return result
 
 # def make_stylish(data, i=0):

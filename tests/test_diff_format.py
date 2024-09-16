@@ -22,7 +22,7 @@ def test_diff_json_to_plain():
     assert format_diff + '\n' == diff_test
     assert generate_diff(
         'tests/fixtures/file1.json', 'tests/fixtures/file1.json',
-        'plain') == ""
+        'plain') == "\n\n"
 
 
 def test_diff_yaml_to_stylish():
@@ -43,7 +43,7 @@ def test_diff_yaml_to_plain():
     assert format_diff + '\n' == diff_test
     assert generate_diff(
         'tests/fixtures/file1.yaml', 'tests/fixtures/file1.yaml',
-        'plain') == ""
+        'plain') == "\n\n"
 
 
 def test_diff_json_or_yaml_to_json():
