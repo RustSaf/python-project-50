@@ -23,5 +23,5 @@ def data_parser(file, ext_file):
             data = yaml.safe_load(file)
             return data
         case _:
-            raise Exception("\033[3m\033[31m\033[40m{}\033[0m".format(
+            raise ValueError("\033[3m\033[31m\033[40m{}\033[0m".format(
                 "Unknown file format"))
