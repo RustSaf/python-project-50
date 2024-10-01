@@ -103,11 +103,11 @@ Launching the _gendiff_ and finding differences in _json_ and _yaml_ files for n
 
 Launching the _gendiff_ and finding differences in _json_ and _yaml_ files for nested structures using formatters _stylish_ and _plain_ in _json_ and _yaml_ files:
 
-[![asciicast2](https://asciinema.org/a/UGzVUCa2j11zjOfCqRcLgEzFH.png)](https://asciinema.org/a/UGzVUCa2j11zjOfCqRcLgEzFH)
+[![asciicast2](https://asciinema.org/a/2KeJxPAlcoNEiE0nPj7IrzlRF.png)](https://asciinema.org/a/2KeJxPAlcoNEiE0nPj7IrzlRF)
 
 Launching the _gendiff_ and finding differences in _json_ files for nested structures using formatters _json_:
 
-[![asciicast2](https://asciinema.org/a/1tHTcaVMNUuL8RdapiRHyOChE.png)](https://asciinema.org/a/1tHTcaVMNUuL8RdapiRHyOChE)
+[![asciicast2](https://asciinema.org/a/Fg0Nm8eERPwf8KPlHSyeK3dzh.png)](https://asciinema.org/a/Fg0Nm8eERPwf8KPlHSyeK3dzh)
 
 
 ### Links

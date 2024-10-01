@@ -14,7 +14,7 @@ def build_tree(data1, data2):
         elif data1[key] == data2[key]:
             if isinstance(data1[key], dict):
                 data[key] = {'type': 'nested', 'value': build_tree(
-                    data1[key], data2[key])}
+                    data1[key], data1[key])}
             else:
                 data[key] = {
                     'type': 'children', 'value': data1[key]}
