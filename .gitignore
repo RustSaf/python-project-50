@@ -9,5 +9,6 @@ coverage.xml
 .idea
 demo1.cast
 *.cast
+demo1.cast
 *.swp
 qodana.yaml
